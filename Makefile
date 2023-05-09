@@ -41,10 +41,10 @@ $(BIN_DIR)/$(EXEC): $(OBJS)
 	@mkdir -p $(BIN_DIR)
 	@$(CC) $(LDFLAGS) $^ $(LDLIBS) -o $@
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	@printf "\e[92m==> \e[0;1mCompiling %s…\e[0m\n" "$<"
 	@mkdir -p $(dir $@)
-	@$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
 
 buildtext:
 	@printf "\e[1;91m> \e[0;1mBuilding %s…\e[0m\n" "$(EXEC)"
